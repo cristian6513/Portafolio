@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portafolio profesional de Cristian Betancourt Barbosa, Desarrollador de Software especializado en IA y Backend.">
+    <meta name="author" content="Cristian Betancourt Barbosa">
+    <title>Cristian Betancourt | Desarrollador de Software & IA</title>
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Estilo base para usar la fuente Inter */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* slate-900 */
+            color: #cbd5e1; /* slate-300 */
+        }
+        /* Color de acento para gradientes y elementos clave */
+        .accent-gradient {
+            background: linear-gradient(90deg, #38bdf8, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ========== HEADER ========== -->
+    <header class="bg-slate-900/70 backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="text-2xl font-bold text-white">
+                C<span class="text-sky-400">.</span>B
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-slate-300 hover:text-sky-400 transition-colors duration-300">Sobre Mí</a>
+                <a href="#projects" class="text-slate-300 hover:text-sky-400 transition-colors duration-300">Proyectos</a>
+                <a href="#skills" class="text-slate-300 hover:text-sky-400 transition-colors duration-300">Habilidades</a>
+                <a href="#education" class="text-slate-300 hover:text-sky-400 transition-colors duration-300">Formación</a>
+                <a href="#contact" class="text-slate-300 hover:text-sky-400 transition-colors duration-300">Contacto</a>
+            </nav>
+            <a href="mailto:cb3013905@gmail.com" class="hidden md:inline-block bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+                Contactar
+            </a>
+            <button class="md:hidden text-white text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========== HERO SECTION ========== -->
+        <section id="home" class="min-h-screen flex items-center justify-center text-center pt-20">
+            <div class="container mx-auto px-4" data-aos="fade-up">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                    Cristian Betancourt Barbosa
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-bold mt-2 accent-gradient">
+                    Desarrollador Junior | IA Aplicada & Desarrollo Web
+                </h2>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-slate-400">
+                    Experiencia práctica en desarrollo de APIs con Flask, automatización de tareas y análisis de datos con Pandas y scikit-learn. Busco unirme a un equipo donde pueda aportar soluciones limpias, escalables y eficientes.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#projects" class="w-full sm:w-auto bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105">
+                        <i class="fa-solid fa-code mr-2"></i>Ver Mis Proyectos
+                    </a>
+                    <a href="/Cristian_Betancourt_CV.docx" target="_blank" class="w-full sm:w-auto bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105">
+                        <i class="fa-solid fa-file-arrow-down mr-2"></i>Descargar CV
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ABOUT SECTION ========== -->
+        <section id="about" class="py-20 md:py-32">
+            <div class="container mx-auto px-4" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-4">Perfil Profesional</h2>
+                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12"></div>
+                <div class="max-w-4xl mx-auto bg-slate-800/50 rounded-xl p-8 md:p-12 shadow-lg">
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed text-justify">
+                        Desarrollador Junior con experiencia en Soporte TI y formación especializada en Inteligencia Artificial Aplicada y Desarrollo Web. Mi experiencia práctica incluye el desarrollo de APIs con Flask, la automatización de tareas, y el análisis de datos utilizando Pandas y scikit-learn. Certificado por IBM en inteligencia artificial y ciencia de datos, mi objetivo es unirme a un equipo donde pueda aportar soluciones limpias, escalables y eficientes, aplicando siempre buenas prácticas de código.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PROJECTS SECTION ========== -->
+        <section id="projects" class="py-20 md:py-32 bg-slate-900">
+            <div class="container mx-auto px-4" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-4">Proyectos Destacados</h2>
+                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12"></div>
+                <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+                    <!-- Proyecto 1: Tech-Sentiment Dashboard -->
+                    <div class="bg-slate-800 rounded-xl overflow-hidden shadow-2xl flex flex-col group" data-aos="fade-right">
+                        <img src="/Tech-Sentiment Dashboard.png" alt="Tech-Sentiment Dashboard" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-white mb-2">Tech-Sentiment Dashboard</h3>
+                            <p class="text-slate-400 mb-4 flex-grow">
+                                Aplicación web que recolecta noticias de tecnología, aplica análisis de sentimiento con IA (TextBlob) y las presenta en un dashboard interactivo.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-sky-900/50 text-sky-300 text-sm font-semibold px-3 py-1 rounded-full">Python</span>
+                                <span class="bg-sky-900/50 text-sky-300 text-sm font-semibold px-3 py-1 rounded-full">Flask</span>
+                                <span class="bg-sky-900/50 text-sky-300 text-sm font-semibold px-3 py-1 rounded-full">MySQL</span>
+                                <span class="bg-sky-900/50 text-sky-300 text-sm font-semibold px-3 py-1 rounded-full">BeautifulSoup</span>
+                            </div>
+                            <div class="flex items-center gap-4 mt-auto">
+                                <a href="https://github.com/cristian6513/tech-sentiment-dashboard" target="_blank" class="text-sky-400 hover:text-sky-300 font-semibold transition-colors duration-300"><i class="fa-brands fa-github mr-2"></i>Ver Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Proyecto 2: Patisazon -->
+                    <div class="bg-slate-800 rounded-xl overflow-hidden shadow-2xl flex flex-col group" data-aos="fade-left">
+                         <img src="/patisazon.jpeg" alt="Patisazon" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-white mb-2">Patisazon – Plataforma Web para Restaurante</h3>
+                            <p class="text-slate-400 mb-4 flex-grow">
+                                Sistema de gestión para restaurantes que permite manejar menú, pedidos, usuarios y cuenta con autenticación segura a través de Google OAuth.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-violet-900/50 text-violet-300 text-sm font-semibold px-3 py-1 rounded-full">C#</span>
+                                <span class="bg-violet-900/50 text-violet-300 text-sm font-semibold px-3 py-1 rounded-full">ASP.NET MVC</span>
+                                <span class="bg-violet-900/50 text-violet-300 text-sm font-semibold px-3 py-1 rounded-full">SQL Server</span>
+                                <span class="bg-violet-900/50 text-violet-300 text-sm font-semibold px-3 py-1 rounded-full">Bootstrap</span>
+                            </div>
+                            <div class="flex items-center gap-4 mt-auto">
+                                <a href="https://github.com/cristian6513/PATISAZON" target="_blank" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors duration-300"><i class="fa-brands fa-github mr-2"></i>Ver Código</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SKILLS SECTION ========== -->
+        <section id="skills" class="py-20 md:py-32">
+            <div class="container mx-auto px-4" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-4">Competencias Técnicas</h2>
+                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12"></div>
+                <div class="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center">
+                    <!-- Fila 1 -->
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in"><i class="fa-brands fa-python text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">Python</h4></div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="50"><i class="fa-solid fa-code text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">C#</h4></div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="100"><i class="fa-brands fa-js text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">JavaScript</h4></div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="150"><i class="fa-brands fa-html5 text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">HTML & CSS</h4></div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="200"><i class="fa-solid fa-database text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">SQL</h4></div>
+                    <!-- Fila 2 -->
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="250"><i class="fa-brands fa-flask text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">Flask & FastAPI</h4></div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="300"><i class="fa-solid fa-server text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">MySQL & SQL Server</h4></div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="350"><i class="fa-solid fa-chart-line text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">Pandas & Numpy</h4></div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="400"><i class="fa-solid fa-brain text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">Scikit-learn</h4></div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="450"><i class="fa-brands fa-git-alt text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">Git & GitHub</h4></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== EDUCATION & CERTIFICATIONS SECTION (NUEVA SECCIÓN) ========== -->
+        <section id="education" class="py-20 md:py-32 bg-slate-900">
+            <div class="container mx-auto px-4" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-4">Formación y Certificaciones</h2>
+                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12"></div>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                    <!-- Certificación IBM -->
+                    <div class="bg-slate-800 p-8 rounded-xl shadow-lg flex items-start gap-6" data-aos="fade-right">
+                        <div class="text-4xl text-sky-400 mt-1">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Certificación Profesional en IA Aplicada</h3>
+                            <p class="text-sky-300 font-semibold mt-1">IBM / Coursera</p>
+                            <p class="text-slate-400 mt-2">Programa intensivo enfocado en el desarrollo de aplicaciones de IA, ciencia de datos y machine learning con Python.</p>
+                        </div>
+                    </div>
+                    <!-- Formación SENA -->
+                     <div class="bg-slate-800 p-8 rounded-xl shadow-lg flex items-start gap-6" data-aos="fade-left">
+                        <div class="text-4xl text-sky-400 mt-1">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Técnico en Programación de Software</h3>
+                            <p class="text-sky-300 font-semibold mt-1">SENA</p>
+                            <p class="text-slate-400 mt-2">Formación técnica fundamental en algoritmos, estructuras de datos y desarrollo de software con C# y SQL Server.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACT SECTION ========== -->
+        <section id="contact" class="py-20 md:py-32">
+            <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+                 <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-4">Hablemos</h2>
+                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12"></div>
+                <p class="max-w-2xl mx-auto text-lg text-slate-400 mb-8">
+                    Estoy buscando activamente mi próximo reto profesional como Desarrollador Junior. Si mi perfil te parece interesante o crees que puedo aportar valor a tu equipo, me encantaría conectar.
+                </p>
+                <a href="mailto:cb3013905@gmail.com" class="inline-block bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 px-10 rounded-full text-xl transition-transform duration-300 hover:scale-105">
+                    <i class="fa-solid fa-envelope mr-3"></i>Envíame un Correo
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-slate-900/70 border-t border-slate-800 py-8">
+        <div class="container mx-auto px-4 text-center text-slate-400">
+            <div class="flex justify-center gap-6 mb-4">
+                <a href="https://github.com/cristian6513" target="_blank" class="text-2xl hover:text-sky-400 transition-colors duration-300"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/cristian-betancourt-barbosa-cjbb13/" target="_blank" class="text-2xl hover:text-sky-400 transition-colors duration-300"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <p>&copy; 2025 Cristian Betancourt Barbosa. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, // Duración de la animación
+            once: true, // Animación se ejecuta solo una vez
+        });
+    </script>
+</body>
+</html>
