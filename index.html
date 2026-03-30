@@ -3,288 +3,976 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portafolio profesional de Cristian Betancourt Barbosa, Desarrollador de Software especializado en IA y Backend.">
+    <meta name="description" content="Cristian Betancourt Barbosa — Founder & Backend Developer | AI Builder. Construyo productos de IA en producción. Fundador de SoloDilo.cloud.">
     <meta name="author" content="Cristian Betancourt Barbosa">
-    <title>Cristian Betancourt | Desarrollador de Software & IA</title>
+    <title>Cristian Betancourt | Founder & Backend Developer | AI Builder</title>
     <link rel="icon" href="favicon.png" type="image/png" />
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script>
         tailwind.config = {
-          safelist: [
-            'fixed', 'top-20', 'left-0', 'w-full', 'z-50',
-            'hidden', 'flex', 'flex-col', 'bg-slate-900', 'px-6', 'py-6', 'shadow-lg',
-            'md:static', 'md:flex', 'md:flex-row', 'md:items-center',
-            'md:bg-transparent', 'md:shadow-none', 'md:space-y-0', 'md:gap-8', 'md:py-0', 'md:px-0'
-          ]
+          theme: {
+            extend: {
+              fontFamily: {
+                display: ['Outfit', 'sans-serif'],
+                body: ['DM Sans', 'sans-serif'],
+              },
+            }
+          }
         }
-      </script>
-      
-    
+    </script>
+
+    <!-- Fonts: Outfit (display) + DM Sans (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- AOS Animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #cbd5e1; 
+        /* ═══════════════════════════════════════════
+           DESIGN SYSTEM — Luxury-Tech Dark
+           ═══════════════════════════════════════════ */
+        :root {
+            --bg-deep: #06080f;
+            --bg-surface: #0c1021;
+            --bg-elevated: #131832;
+            --accent-cyan: #22d3ee;
+            --accent-blue: #3b82f6;
+            --accent-violet: #a78bfa;
+            --accent-amber: #fbbf24;
+            --accent-emerald: #34d399;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #475569;
+            --glass-bg: rgba(12, 16, 33, 0.7);
+            --glass-border: rgba(148, 163, 184, 0.07);
         }
 
-        .accent-gradient {
-            background: linear-gradient(90deg, #38bdf8, #3b82f6);
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* ─── Noise / Grain Overlay ─── */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ─── Gradient Text ─── */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue), var(--accent-violet));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ─── Glass Card ─── */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.25rem;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* ─── Hero Section ─── */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+        }
+
+        .hero-orb-1 {
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.18), transparent 70%);
+            top: -250px; right: -200px;
+            animation: orb-drift 12s ease-in-out infinite alternate;
+        }
+
+        .hero-orb-2 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(167, 139, 250, 0.15), transparent 70%);
+            bottom: -100px; left: -150px;
+            animation: orb-drift 15s ease-in-out infinite alternate-reverse;
+        }
+
+        .hero-orb-3 {
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.1), transparent 70%);
+            top: 40%; left: 50%;
+            animation: orb-drift 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes orb-drift {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(-30px, -40px) scale(1.15); }
+        }
+
+        /* ─── Dot Grid Background ─── */
+        .dot-grid {
+            background-image: radial-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* ─── Line Grid Background ─── */
+        .line-grid {
+            background-image:
+                linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+        }
+
+        /* ─── Section Header ─── */
+        .section-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--accent-cyan);
+        }
+
+        /* ─── Shimmer Animation ─── */
+        @keyframes shimmer {
+            0% { background-position: -300% center; }
+            100% { background-position: 300% center; }
+        }
+
+        .shimmer-text {
+            background: linear-gradient(90deg,
+                var(--accent-cyan) 0%,
+                var(--accent-blue) 25%,
+                var(--accent-violet) 50%,
+                var(--accent-blue) 75%,
+                var(--accent-cyan) 100%);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 6s linear infinite;
+        }
+
+        /* ─── Buttons ─── */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #06080f;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            padding: 1rem 2.25rem;
+            border-radius: 999px;
+            transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(34, 211, 238, 0.25);
+        }
+
+        .btn-primary:hover::after {
+            opacity: 1;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            padding: 1rem 2.25rem;
+            border-radius: 999px;
+            transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(148, 163, 184, 0.08);
+            border-color: rgba(148, 163, 184, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* ─── Nav ─── */
+        .nav-link {
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px; left: 0; width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+            transition: width 0.3s ease;
+            border-radius: 1px;
+        }
+
+        .nav-link:hover { color: var(--accent-cyan); }
+        .nav-link:hover::after { width: 100%; }
+
+        /* ─── Featured Badge ─── */
+        .badge-featured {
+            background: linear-gradient(135deg, var(--accent-amber), #f97316);
+            color: #06080f;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.85rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .badge-client {
+            background: linear-gradient(135deg, var(--accent-violet), #7c3aed);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.65rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.85rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .badge-live {
+            background: rgba(52, 211, 153, 0.15);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            color: var(--accent-emerald);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.65rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .badge-live::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        /* ─── Tags ─── */
+        .tag {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.7rem;
+            border-radius: 0.5rem;
+            letter-spacing: 0.01em;
+        }
+
+        .tag-cyan { background: rgba(34, 211, 238, 0.1); color: var(--accent-cyan); }
+        .tag-violet { background: rgba(167, 139, 250, 0.1); color: var(--accent-violet); }
+        .tag-amber { background: rgba(251, 191, 36, 0.1); color: var(--accent-amber); }
+
+        /* ─── Skill Chip ─── */
+        .skill-chip {
+            background: rgba(34, 211, 238, 0.06);
+            border: 1px solid rgba(34, 211, 238, 0.1);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.65rem 1.3rem;
+            border-radius: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-chip:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(34, 211, 238, 0.1);
+        }
+
+        .skill-cyan { color: var(--accent-cyan); border-color: rgba(34, 211, 238, 0.12); background: rgba(34, 211, 238, 0.06); }
+        .skill-cyan:hover { border-color: rgba(34, 211, 238, 0.25); background: rgba(34, 211, 238, 0.1); }
+        .skill-violet { color: var(--accent-violet); border-color: rgba(167, 139, 250, 0.12); background: rgba(167, 139, 250, 0.06); }
+        .skill-violet:hover { border-color: rgba(167, 139, 250, 0.25); background: rgba(167, 139, 250, 0.1); }
+        .skill-amber { color: var(--accent-amber); border-color: rgba(251, 191, 36, 0.12); background: rgba(251, 191, 36, 0.06); }
+        .skill-amber:hover { border-color: rgba(251, 191, 36, 0.25); background: rgba(251, 191, 36, 0.1); }
+        .skill-emerald { color: var(--accent-emerald); border-color: rgba(52, 211, 153, 0.12); background: rgba(52, 211, 153, 0.06); }
+        .skill-emerald:hover { border-color: rgba(52, 211, 153, 0.25); background: rgba(52, 211, 153, 0.1); }
+
+        /* ─── Cert Timeline ─── */
+        .cert-card {
+            position: relative;
+            padding-left: 2.25rem;
+            border-left: 2px solid rgba(34, 211, 238, 0.12);
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            left: -7px; top: 1.5rem;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 16px rgba(34, 211, 238, 0.5);
+        }
+
+        /* ─── Project Image Wrapper ─── */
+        .project-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.25rem 1.25rem 0 0;
+        }
+
+        .project-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .glass-card:hover .project-img-wrapper img {
+            transform: scale(1.04);
+        }
+
+        .project-img-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--bg-deep) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* ─── Featured Card Glow Border ─── */
+        .featured-glow {
+            position: relative;
+        }
+
+        .featured-glow::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 1.35rem;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(249, 115, 22, 0.15), transparent 60%);
+            z-index: -1;
+        }
+
+        /* ─── Stat Counter ─── */
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.35rem;
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 768px) {
+            .hero-orb-1 { width: 350px; height: 350px; }
+            .hero-orb-2 { width: 250px; height: 250px; }
+            .hero-orb-3 { width: 150px; height: 150px; }
+            .stat-value { font-size: 1.75rem; }
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="bg-slate-900/70 backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-            <div class="text-2xl font-bold text-white">
-                C<span class="text-sky-400">.</span>B
-            </div>
-            <button id="menu-btn" class="md:hidden text-white text-2xl focus:outline-none z-50 relative">
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header class="fixed top-0 left-0 right-0 z-50" style="background: rgba(6, 8, 15, 0.85); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid var(--glass-border);">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" class="text-2xl font-bold text-white" style="font-family: 'Outfit', sans-serif; letter-spacing: -0.03em;">
+                C<span style="color: var(--accent-cyan);">.</span>B
+            </a>
+            <button id="menu-btn" class="md:hidden text-white text-2xl focus:outline-none z-50 relative" aria-label="Toggle menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
             <nav class="hidden md:flex md:items-center md:gap-8">
-                <a href="#about" class="text-slate-300 hover:text-sky-400 transition">Sobre Mí</a>
-                <a href="#projects" class="text-slate-300 hover:text-sky-400 transition">Proyectos</a>
-                <a href="#skills" class="text-slate-300 hover:text-sky-400 transition">Habilidades</a>
-                <a href="#education" class="text-slate-300 hover:text-sky-400 transition">Formación</a>
-                <a href="#contact" class="text-slate-300 hover:text-sky-400 transition">Contacto</a>
+                <a href="#about" class="nav-link">Sobre Mí</a>
+                <a href="#projects" class="nav-link">Proyectos</a>
+                <a href="#skills" class="nav-link">Habilidades</a>
+                <a href="#education" class="nav-link">Formación</a>
+                <a href="#contact" class="nav-link">Contacto</a>
             </nav>
-            <a href="mailto:cb3013905@gmail.com" class="hidden md:inline-block bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-4 rounded-lg transition">
-                Contactar
+            <a href="mailto:cb3013905@gmail.com" class="hidden md:inline-flex btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.85rem;">
+                <i class="fa-solid fa-paper-plane"></i> Contactar
             </a>
         </div>
     </header>
-    <div id="mobile-menu" class="hidden fixed inset-0 bg-slate-900 flex flex-col items-center justify-center space-y-6 z-40 md:hidden">
-        <a href="#about" class="text-xl text-slate-300 hover:text-sky-400 transition">Sobre Mí</a>
-        <a href="#projects" class="text-xl text-slate-300 hover:text-sky-400 transition">Proyectos</a>
-        <a href="#skills" class="text-xl text-slate-300 hover:text-sky-400 transition">Habilidades</a>
-        <a href="#education" class="text-xl text-slate-300 hover:text-sky-400 transition">Formación</a>
-        <a href="#contact" class="text-xl text-slate-300 hover:text-sky-400 transition">Contacto</a>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 flex flex-col items-center justify-center space-y-8 z-40 md:hidden" style="background: rgba(6, 8, 15, 0.97); backdrop-filter: blur(30px);">
+        <a href="#about" class="text-2xl font-bold text-white hover:text-cyan-400 transition-colors">Sobre Mí</a>
+        <a href="#projects" class="text-2xl font-bold text-white hover:text-cyan-400 transition-colors">Proyectos</a>
+        <a href="#skills" class="text-2xl font-bold text-white hover:text-cyan-400 transition-colors">Habilidades</a>
+        <a href="#education" class="text-2xl font-bold text-white hover:text-cyan-400 transition-colors">Formación</a>
+        <a href="#contact" class="text-2xl font-bold text-white hover:text-cyan-400 transition-colors">Contacto</a>
     </div>
-    
 
-      
+    <main>
 
-    <main class="pt-32 md:pt-20">
+        <!-- ═══════════════ HERO ═══════════════ -->
+        <section id="home" class="hero-section">
+            <!-- Background Orbs -->
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
 
-        <section id="home" class="min-h-screen flex items-center justify-center text-center pt-32 md:pt-20">
-            <div class="container mx-auto px-4" data-aos="fade-up">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
-                    Cristian Betancourt Barbosa
-                </h1>
-                <h2 class="text-2xl md:text-3xl font-bold mt-2 accent-gradient">
-                    Desarrollador Junior | IA Aplicada & Desarrollo Web
-                </h2>
-                <p class="mt-6 max-w-3xl mx-auto text-lg text-slate-400">
-                    Experiencia práctica en desarrollo de APIs con Flask, automatización de tareas y análisis de datos con Pandas y scikit-learn. Busco unirme a un equipo donde pueda aportar soluciones limpias, escalables y eficientes.
-                </p>
-                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#projects" class="w-full sm:w-auto bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105">
-                        <i class="fa-solid fa-code mr-2"></i>Ver Mis Proyectos
+            <div class="max-w-7xl mx-auto px-6 w-full relative z-10 grid md:grid-cols-2 gap-12 items-center pt-32 md:pt-20">
+                <!-- Left: Text -->
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="section-label mb-8">
+                        Founder & Backend Developer · AI Builder
+                    </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[0.95] tracking-tight" style="font-family: 'Outfit', sans-serif;">
+                        Cristian<br>
+                        <span class="shimmer-text">Betancourt</span><br>
+                        Barbosa
+                    </h1>
+                    <p class="mt-4 text-base md:text-lg font-semibold" style="color: var(--accent-violet); font-family: 'Outfit', sans-serif;">
+                        Founder @ SoloDilo.cloud · Backend Developer & AI Builder
+                    </p>
+                    <p class="mt-6 text-base leading-relaxed max-w-lg" style="color: var(--text-secondary);">
+                        Construyo productos de IA en producción. Fundé <strong style="color: var(--accent-cyan);">SoloDilo.cloud</strong> — un SaaS de asistentes IA para negocios LATAM con RAG, function calling, WhatsApp/Telegram y panel de administración completo.
+                    </p>
+                    <div class="mt-10 flex flex-wrap gap-4">
+                        <a href="#projects" class="btn-primary">
+                            <i class="fa-solid fa-rocket"></i> Ver Proyectos
+                        </a>
+                        <a href="mailto:cb3013905@gmail.com" class="btn-ghost">
+                            <i class="fa-regular fa-envelope"></i> Contactar
+                        </a>
+                    </div>
+                    <a href="/Cristian_Betancourt_CV.docx" target="_blank" class="inline-flex items-center gap-2 mt-6 text-sm font-medium transition-colors duration-300 hover:text-cyan-400" style="color: var(--text-muted);">
+                        <i class="fa-solid fa-file-arrow-down"></i> Descargar CV
                     </a>
-                    <a href="/Cristian_Betancourt_CV.docx" target="_blank" class="w-full sm:w-auto bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105">
-                        <i class="fa-solid fa-file-arrow-down mr-2"></i>Descargar CV
-                    </a>
+                </div>
+
+                <!-- Right: Stats + Visual -->
+                <div class="hidden md:flex flex-col items-center gap-8" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="glass-card p-8 w-full max-w-sm" style="border: 1px solid rgba(34, 211, 238, 0.08);">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="stat-item">
+                                <div class="stat-value gradient-text">2</div>
+                                <div class="stat-label">Productos SaaS</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" style="color: var(--accent-violet);">6</div>
+                                <div class="stat-label">Certificaciones</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" style="color: var(--accent-amber);">5+</div>
+                                <div class="stat-label">API Integrations</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" style="color: var(--accent-emerald);">∞</div>
+                                <div class="stat-label">Curiosidad</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/cristian6513" target="_blank" class="glass-card p-3 text-xl transition-colors duration-300 hover:text-cyan-400" style="color: var(--text-muted); border: 1px solid rgba(148, 163, 184, 0.08);">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/cristian-betancourt-barbosa-cjbb13/" target="_blank" class="glass-card p-3 text-xl transition-colors duration-300 hover:text-blue-400" style="color: var(--text-muted); border: 1px solid rgba(148, 163, 184, 0.08);">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="https://solodilo.cloud" target="_blank" class="glass-card p-3 text-xl transition-colors duration-300 hover:text-amber-400" style="color: var(--text-muted); border: 1px solid rgba(148, 163, 184, 0.08);">
+                            <i class="fa-solid fa-globe"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="py-20 md:py-32">
-            <div class="container mx-auto px-4" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-4">Perfil Profesional</h2>
-                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12"></div>
-                <div class="max-w-4xl mx-auto bg-slate-800/50 rounded-xl p-8 md:p-12 shadow-lg">
-                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed text-justify">
-                        Desarrollador Junior con experiencia en Soporte TI y formación especializada en Inteligencia Artificial Aplicada y Desarrollo Web. Mi experiencia práctica incluye el desarrollo de APIs con Flask, la automatización de tareas, y el análisis de datos utilizando Pandas y scikit-learn. Certificado por IBM en inteligencia artificial y ciencia de datos, mi objetivo es unirme a un equipo donde pueda aportar soluciones limpias, escalables y eficientes, aplicando siempre buenas prácticas de código.
+        <!-- ═══════════════ PERFIL PROFESIONAL ═══════════════ -->
+        <section id="about" class="py-28 md:py-36 dot-grid relative">
+            <div class="max-w-5xl mx-auto px-6" data-aos="fade-up">
+                <div class="section-label mb-4">Sobre Mí</div>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-10" style="font-family: 'Outfit', sans-serif;">
+                    Perfil Profesional
+                </h2>
+                <div class="glass-card p-8 md:p-12" style="box-shadow: 0 0 60px rgba(34, 211, 238, 0.06); border: 1px solid rgba(34, 211, 238, 0.08);">
+                    <p class="text-lg md:text-xl leading-[1.85] text-justify" style="color: var(--text-secondary);">
+                        Desarrollador backend y fundador técnico con productos de IA en producción. Fundé <strong style="color: var(--accent-cyan);">SoloDilo.cloud</strong>: SaaS con pipeline RAG, GPT-4o-mini con function calling, pagos Wompi, WhatsApp + Telegram + web widget y panel de administración completo. También entregué <strong style="color: var(--accent-violet);">OlaTech AI</strong> para cliente internacional — plataforma de chatbots con reservas y analytics. Certificado por Anthropic (Claude Code) e IBM (AI Developer Professional).
                     </p>
                 </div>
             </div>
         </section>
 
+        <!-- ═══════════════ PROYECTOS ═══════════════ -->
+        <section id="projects" class="py-28 md:py-36 relative">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="section-label mb-4" data-aos="fade-up">Portafolio</div>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-14" data-aos="fade-up" style="font-family: 'Outfit', sans-serif;">
+                    Proyectos Destacados
+                </h2>
 
-        <section id="projects" class="py-20 md:py-32 bg-slate-900">
-            <div class="container mx-auto px-4" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-4">Proyectos Destacados</h2>
-                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12"></div>
-                <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-
-                    <div class="bg-slate-800 rounded-xl overflow-hidden shadow-2xl flex flex-col group" data-aos="fade-right">
-                        <img src="Tech-Sentiment Dashboard.png" alt="Tech-Sentiment Dashboard" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-2">Tech-Sentiment Dashboard</h3>
-                            <p class="text-slate-400 mb-4 flex-grow">
-                                Aplicación web que recolecta noticias de tecnología, aplica análisis de sentimiento con IA (TextBlob) y las presenta en un dashboard interactivo.
+                <!-- ── Proyecto 1: SoloDilo (Featured — Full Width) ── -->
+                <div class="featured-glow glass-card mb-12 overflow-hidden" data-aos="fade-up" style="border: 1px solid rgba(251, 191, 36, 0.12); box-shadow: 0 0 80px rgba(251, 191, 36, 0.06);">
+                    <div class="grid md:grid-cols-2">
+                        <!-- Image -->
+                        <div class="project-img-wrapper h-64 md:h-auto" style="border-radius: 1.25rem 1.25rem 0 0; md:border-radius: 1.25rem 0 0 1.25rem;">
+                            <img src="Dilo inicio.png" alt="SoloDilo.cloud landing page" loading="lazy" style="object-position: top;">
+                            <div style="position:absolute; inset:0; background: linear-gradient(to right, transparent 50%, var(--bg-deep) 100%); pointer-events:none;" class="hidden md:block"></div>
+                            <div style="position:absolute; inset:0; background: linear-gradient(to top, var(--bg-deep) 0%, transparent 60%); pointer-events:none;" class="md:hidden"></div>
+                        </div>
+                        <!-- Content -->
+                        <div class="p-8 md:p-10 flex flex-col justify-center">
+                            <div class="flex flex-wrap items-center gap-3 mb-5">
+                                <span class="badge-featured"><i class="fa-solid fa-star"></i> Proyecto Principal</span>
+                                <span class="badge-live">En Producción</span>
+                            </div>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-white mb-4" style="font-family: 'Outfit', sans-serif; letter-spacing: -0.02em;">
+                                SoloDilo.cloud
+                            </h3>
+                            <p class="text-base leading-relaxed mb-6" style="color: var(--text-secondary);">
+                                SaaS multi-tenant de asistentes IA para pequeños negocios en LATAM. El negocio sube su PDF y obtiene un bot que toma pedidos, agenda citas y responde preguntas — en WhatsApp, Telegram y web.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="bg-sky-900/50 text-sky-300 text-sm font-semibold px-3 py-1 rounded-full">Python</span>
-                                <span class="bg-sky-900/50 text-sky-300 text-sm font-semibold px-3 py-1 rounded-full">Flask</span>
-                                <span class="bg-sky-900/50 text-sky-300 text-sm font-semibold px-3 py-1 rounded-full">MySQL</span>
-                                <span class="bg-sky-900/50 text-sky-300 text-sm font-semibold px-3 py-1 rounded-full">BeautifulSoup</span>
+                                <span class="tag tag-cyan">Python</span>
+                                <span class="tag tag-cyan">Flask</span>
+                                <span class="tag tag-cyan">React 19</span>
+                                <span class="tag tag-cyan">RAG</span>
+                                <span class="tag tag-cyan">pgvector</span>
+                                <span class="tag tag-cyan">OpenAI</span>
+                                <span class="tag tag-cyan">Docker</span>
+                                <span class="tag tag-amber">Wompi</span>
                             </div>
-                            <div class="flex items-center gap-4 mt-auto">
-                                <a href="https://github.com/cristian6513/tech-sentiment-dashboard" target="_blank" class="text-sky-400 hover:text-sky-300 font-semibold transition-colors duration-300"><i class="fa-brands fa-github mr-2"></i>Ver Código</a>
-                            </div>
+                            <a href="https://solodilo.cloud" target="_blank" class="btn-primary w-fit" style="font-size: 0.9rem; padding: 0.7rem 1.75rem;">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Live
+                            </a>
                         </div>
                     </div>
+                </div>
 
-                    <div class="bg-slate-800 rounded-xl overflow-hidden shadow-2xl flex flex-col group" data-aos="fade-left">
-                         <img src="patisazon.jpeg" alt="Patisazon" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-2">Patisazon – Plataforma Web para Restaurante</h3>
-                            <p class="text-slate-400 mb-4 flex-grow">
-                                Sistema de gestión para restaurantes que permite manejar menú, pedidos, usuarios y cuenta con autenticación segura a través de Google OAuth.
+                <!-- ── Proyecto 2: OlaTech AI ── -->
+                <div class="glass-card mb-12 overflow-hidden" data-aos="fade-up" style="border: 1px solid rgba(167, 139, 250, 0.1); box-shadow: 0 0 50px rgba(167, 139, 250, 0.05);">
+                    <div class="grid md:grid-cols-2">
+                        <!-- Image -->
+                        <div class="project-img-wrapper h-64 md:h-auto md:order-2" style="border-radius: 1.25rem 1.25rem 0 0;">
+                            <img src="Olatech.png" alt="OlaTech AI admin dashboard" loading="lazy" style="object-position: top left;">
+                            <div style="position:absolute; inset:0; background: linear-gradient(to left, transparent 50%, var(--bg-deep) 100%); pointer-events:none;" class="hidden md:block"></div>
+                            <div style="position:absolute; inset:0; background: linear-gradient(to top, var(--bg-deep) 0%, transparent 60%); pointer-events:none;" class="md:hidden"></div>
+                        </div>
+                        <!-- Content -->
+                        <div class="p-8 md:p-10 flex flex-col justify-center md:order-1">
+                            <div class="flex flex-wrap items-center gap-3 mb-5">
+                                <span class="badge-client"><i class="fa-solid fa-handshake"></i> Cliente Internacional</span>
+                                <span class="badge-live">En Producción</span>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-4" style="font-family: 'Outfit', sans-serif; letter-spacing: -0.01em;">
+                                OlaTech AI
+                            </h3>
+                            <p class="text-base leading-relaxed mb-6" style="color: var(--text-secondary);">
+                                Plataforma completa de chatbots entregada a cliente internacional (Fiverr). Admin panel seguro, GPT-4, sistema de reservas híbrido para restaurantes/hoteles, FAQs por bot y analytics.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="bg-violet-900/50 text-violet-300 text-sm font-semibold px-3 py-1 rounded-full">C#</span>
-                                <span class="bg-violet-900/50 text-violet-300 text-sm font-semibold px-3 py-1 rounded-full">ASP.NET MVC</span>
-                                <span class="bg-violet-900/50 text-violet-300 text-sm font-semibold px-3 py-1 rounded-full">SQL Server</span>
-                                <span class="bg-violet-900/50 text-violet-300 text-sm font-semibold px-3 py-1 rounded-full">Bootstrap</span>
+                                <span class="tag tag-violet">Python</span>
+                                <span class="tag tag-violet">Flask</span>
+                                <span class="tag tag-violet">PostgreSQL</span>
+                                <span class="tag tag-violet">SQLAlchemy</span>
+                                <span class="tag tag-violet">OpenAI</span>
+                                <span class="tag tag-violet">PythonAnywhere</span>
                             </div>
-                            <div class="flex items-center gap-4 mt-auto">
-                                <a href="https://github.com/cristian6513/PATISAZON" target="_blank" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors duration-300"><i class="fa-brands fa-github mr-2"></i>Ver Código</a>
+                            <a href="https://www.olatechai.org/" target="_blank" class="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300 hover:translate-x-1" style="color: var(--accent-violet);">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Live →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Grid: Projects 3–5 ── -->
+                <div class="grid md:grid-cols-3 gap-8">
+
+                    <!-- Proyecto 3: Patisazon -->
+                    <div class="glass-card overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="0">
+                        <div class="project-img-wrapper h-48">
+                            <img src="patisazon.jpeg" alt="Patisazon" loading="lazy">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2" style="font-family: 'Outfit', sans-serif;">Patisazon</h3>
+                            <p class="text-sm mb-4 flex-grow" style="color: var(--text-secondary); line-height: 1.65;">
+                                Sistema de gestión para restaurantes: menú, pedidos, usuarios y autenticación con Google OAuth.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="tag tag-violet text-xs">C#</span>
+                                <span class="tag tag-violet text-xs">ASP.NET MVC</span>
+                                <span class="tag tag-violet text-xs">SQL Server</span>
+                                <span class="tag tag-violet text-xs">Bootstrap</span>
+                            </div>
+                            <a href="https://github.com/cristian6513/PATISAZON" target="_blank" class="text-xs font-semibold transition-colors duration-300" style="color: var(--accent-violet);">
+                                <i class="fa-brands fa-github mr-1"></i> Ver Código →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Proyecto 4: IPVN Dashboard -->
+                    <div class="glass-card overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-img-wrapper h-48">
+                            <img src="IPVN Colombia Dashboard API.png" alt="IPVN Colombia Dashboard API" loading="lazy">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2" style="font-family: 'Outfit', sans-serif;">IPVN Dashboard</h3>
+                            <p class="text-sm mb-4 flex-grow" style="color: var(--text-secondary); line-height: 1.65;">
+                                Dashboard interactivo que procesa y visualiza el Índice de Precios de Vivienda Nueva del DANE.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="tag tag-cyan text-xs">Python</span>
+                                <span class="tag tag-cyan text-xs">Flask</span>
+                                <span class="tag tag-cyan text-xs">Pandas</span>
+                                <span class="tag tag-cyan text-xs">Chart.js</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <a href="https://github.com/cristian6513/IPVN-Colombia-Dashboard-API" target="_blank" class="text-xs font-semibold transition-colors duration-300" style="color: var(--accent-cyan);">
+                                    <i class="fa-brands fa-github mr-1"></i> Código
+                                </a>
+                                <a href="https://ipvn-colombia-dashboard-api.onrender.com/" target="_blank" class="text-xs font-semibold transition-colors duration-300" style="color: var(--accent-cyan);">
+                                    <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Live
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-slate-800 rounded-xl overflow-hidden shadow-2xl flex flex-col group" data-aos="fade-left">
-                        <img src="IPVN Colombia Dashboard API.png" alt="IPVN Colombia Dashboard API" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105">
-                       <div class="p-6 flex flex-col flex-grow">
-                           <h3 class="text-2xl font-bold text-white mb-2">IPVN Colombia Dashboard API</h3>
-                           <p class="text-slate-400 mb-4 flex-grow">
-                                Aplicación web interactiva que procesa, analiza y visualiza el Índice de Precios de Vivienda Nueva (IPVN) publicado por el DANE.
-                           </p>
-                           <div class="flex flex-wrap gap-2 mb-6">
-                               <span class="bg-sky-900/50 text-sky-300 text-sm font-semibold px-3 py-1 rounded-full">Python</span>
-                               <span class="bg-sky-900/50 text-sky-300 text-sm font-semibold px-3 py-1 rounded-full">Flask</span>
-                               <span class="bg-sky-900/50 text-sky-300 text-sm font-semibold px-3 py-1 rounded-full">Pandas</span>
-                               <span class="bg-sky-900/50 text-sky-300 text-sm font-semibold px-3 py-1 rounded-full">Chart.js</span>
-                           </div>
-                           <div class="flex items-center gap-4 mt-auto">
-                               <a href="https://github.com/cristian6513/IPVN-Colombia-Dashboard-API" target="_blank" class="bg-sky-900/50 hover:text-violet-300 font-semibold transition-colors duration-300"><i class="fa-brands fa-github mr-2"></i>Ver Código</a>
-                               <a href="https://ipvn-colombia-dashboard-api.onrender.com/" target="_blank" class="bg-sky-900/50 hover:text-violet-300 font-semibold transition-colors duration-300"><i class="fa-solid fa-hashtag"></i> Ver Live</a>
-                           </div>
-                       </div>
-                   </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="skills" class="py-20 md:py-32">
-            <div class="container mx-auto px-4" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-4">Competencias Técnicas</h2>
-                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12"></div>
-                <div class="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center">
-
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in"><i class="fa-brands fa-python text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">Python</h4></div>
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="50"><i class="fa-solid fa-code text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">C#</h4></div>
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="100"><i class="fa-brands fa-js text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">JavaScript</h4></div>
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="150"><i class="fa-brands fa-html5 text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">HTML & CSS</h4></div>
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="200"><i class="fa-solid fa-database text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">SQL</h4></div>
-
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="250"><i class="fa-brands fa-flask text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">Flask & FastAPI</h4></div>
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="300"><i class="fa-solid fa-server text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">MySQL & SQL Server</h4></div>
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="350"><i class="fa-solid fa-chart-line text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">Pandas & Numpy</h4></div>
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="400"><i class="fa-solid fa-brain text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">Scikit-learn</h4></div>
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:bg-slate-700/50 transition-colors duration-300" data-aos="zoom-in" data-aos-delay="450"><i class="fa-brands fa-git-alt text-5xl text-sky-400 mb-3"></i><h4 class="text-lg font-semibold text-white">Git & GitHub</h4></div>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="education" class="py-20 md:py-32 bg-slate-900">
-            <div class="container mx-auto px-4" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-4">Formación y Certificaciones</h2>
-                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12"></div>
-                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-
-                    <div class="bg-slate-800 p-8 rounded-xl shadow-lg flex items-start gap-6" data-aos="fade-right">
-                        <div class="text-4xl text-sky-400 mt-1">
-                            <i class="fa-solid fa-award"></i>
+                    <!-- Proyecto 5: Tech-Sentiment -->
+                    <div class="glass-card overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-img-wrapper h-48">
+                            <img src="Tech-Sentiment Dashboard.png" alt="Tech-Sentiment Dashboard" loading="lazy">
                         </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Certificación Profesional en IA Aplicada</h3>
-                            <p class="text-sky-300 font-semibold mt-1">IBM / Coursera</p>
-                            <p class="text-slate-400 mt-2">Programa intensivo enfocado en el desarrollo de aplicaciones de IA, ciencia de datos y machine learning con Python.</p>
-                        </div>
-                    </div>
-
-                     <div class="bg-slate-800 p-8 rounded-xl shadow-lg flex items-start gap-6" data-aos="fade-left">
-                        <div class="text-4xl text-sky-400 mt-1">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Técnico en Programación de Software</h3>
-                            <p class="text-sky-300 font-semibold mt-1">SENA</p>
-                            <p class="text-slate-400 mt-2">Formación técnica fundamental en algoritmos, estructuras de datos y desarrollo de software con C# y SQL Server.</p>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2" style="font-family: 'Outfit', sans-serif;">Tech-Sentiment</h3>
+                            <p class="text-sm mb-4 flex-grow" style="color: var(--text-secondary); line-height: 1.65;">
+                                Recolecta noticias tech, aplica análisis de sentimiento con IA y las visualiza en un dashboard.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="tag tag-cyan text-xs">Python</span>
+                                <span class="tag tag-cyan text-xs">Flask</span>
+                                <span class="tag tag-cyan text-xs">MySQL</span>
+                                <span class="tag tag-cyan text-xs">BeautifulSoup</span>
+                            </div>
+                            <a href="https://github.com/cristian6513/tech-sentiment-dashboard" target="_blank" class="text-xs font-semibold transition-colors duration-300" style="color: var(--accent-cyan);">
+                                <i class="fa-brands fa-github mr-1"></i> Ver Código →
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ═══════════════ HABILIDADES ═══════════════ -->
+        <section id="skills" class="py-28 md:py-36 line-grid relative">
+            <div class="max-w-5xl mx-auto px-6" data-aos="fade-up">
+                <div class="section-label mb-4">Stack Técnico</div>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-14" style="font-family: 'Outfit', sans-serif;">
+                    Competencias Técnicas
+                </h2>
 
-        <section id="contact" class="py-20 md:py-32">
-            <div class="container mx-auto px-4 text-center" data-aos="fade-up">
-                 <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-4">Hablemos</h2>
-                <div class="w-24 h-1 bg-sky-500 mx-auto mb-12"></div>
-                <p class="max-w-2xl mx-auto text-lg text-slate-400 mb-8">
-                    Estoy buscando activamente mi próximo reto profesional como Desarrollador Junior. Si mi perfil te parece interesante o crees que puedo aportar valor a tu equipo, me encantaría conectar.
+                <!-- Backend & Languages -->
+                <div class="mb-12">
+                    <h3 class="text-xs font-bold uppercase tracking-[0.2em] mb-5" style="color: var(--accent-cyan); font-family: 'Outfit', sans-serif;">
+                        <i class="fa-solid fa-code mr-2"></i>Backend & Languages
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-chip skill-cyan" data-aos="zoom-in" data-aos-delay="0"><i class="fa-brands fa-python"></i>Python</span>
+                        <span class="skill-chip skill-cyan" data-aos="zoom-in" data-aos-delay="50"><i class="fa-solid fa-flask-vial"></i>Flask</span>
+                        <span class="skill-chip skill-cyan" data-aos="zoom-in" data-aos-delay="100"><i class="fa-brands fa-react"></i>React 19</span>
+                        <span class="skill-chip skill-cyan" data-aos="zoom-in" data-aos-delay="150"><i class="fa-brands fa-js"></i>JavaScript</span>
+                        <span class="skill-chip skill-cyan" data-aos="zoom-in" data-aos-delay="200"><i class="fa-brands fa-html5"></i>HTML & CSS</span>
+                    </div>
+                </div>
+
+                <!-- AI & ML -->
+                <div class="mb-12">
+                    <h3 class="text-xs font-bold uppercase tracking-[0.2em] mb-5" style="color: var(--accent-violet); font-family: 'Outfit', sans-serif;">
+                        <i class="fa-solid fa-brain mr-2"></i>AI & Machine Learning
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-chip skill-violet" data-aos="zoom-in" data-aos-delay="0"><i class="fa-solid fa-magnifying-glass-chart"></i>RAG / pgvector</span>
+                        <span class="skill-chip skill-violet" data-aos="zoom-in" data-aos-delay="50"><i class="fa-solid fa-robot"></i>OpenAI API</span>
+                        <span class="skill-chip skill-violet" data-aos="zoom-in" data-aos-delay="100"><i class="fa-solid fa-wand-magic-sparkles"></i>Claude API</span>
+                        <span class="skill-chip skill-violet" data-aos="zoom-in" data-aos-delay="150"><i class="fa-solid fa-microphone"></i>Whisper STT</span>
+                    </div>
+                </div>
+
+                <!-- Data & Infra -->
+                <div class="mb-12">
+                    <h3 class="text-xs font-bold uppercase tracking-[0.2em] mb-5" style="color: var(--accent-amber); font-family: 'Outfit', sans-serif;">
+                        <i class="fa-solid fa-server mr-2"></i>Data & Infrastructure
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-chip skill-amber" data-aos="zoom-in" data-aos-delay="0"><i class="fa-solid fa-database"></i>PostgreSQL</span>
+                        <span class="skill-chip skill-amber" data-aos="zoom-in" data-aos-delay="50"><i class="fa-solid fa-database"></i>SQL Server</span>
+                        <span class="skill-chip skill-amber" data-aos="zoom-in" data-aos-delay="100"><i class="fa-solid fa-link"></i>SQLAlchemy</span>
+                        <span class="skill-chip skill-amber" data-aos="zoom-in" data-aos-delay="150"><i class="fa-brands fa-docker"></i>Docker</span>
+                        <span class="skill-chip skill-amber" data-aos="zoom-in" data-aos-delay="200"><i class="fa-brands fa-linux"></i>VPS Linux</span>
+                    </div>
+                </div>
+
+                <!-- Integrations & Tools -->
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-[0.2em] mb-5" style="color: var(--accent-emerald); font-family: 'Outfit', sans-serif;">
+                        <i class="fa-solid fa-plug mr-2"></i>Integrations & Tools
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-chip skill-emerald" data-aos="zoom-in" data-aos-delay="0"><i class="fa-brands fa-whatsapp"></i>WhatsApp Cloud API</span>
+                        <span class="skill-chip skill-emerald" data-aos="zoom-in" data-aos-delay="50"><i class="fa-brands fa-telegram"></i>Telegram Bot API</span>
+                        <span class="skill-chip skill-emerald" data-aos="zoom-in" data-aos-delay="100"><i class="fa-solid fa-credit-card"></i>Wompi</span>
+                        <span class="skill-chip skill-emerald" data-aos="zoom-in" data-aos-delay="150"><i class="fa-brands fa-git-alt"></i>Git & GitHub</span>
+                        <span class="skill-chip skill-emerald" data-aos="zoom-in" data-aos-delay="200"><i class="fa-solid fa-terminal"></i>Claude Code</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ FORMACIÓN & CERTIFICACIONES ═══════════════ -->
+        <section id="education" class="py-28 md:py-36 dot-grid relative">
+            <div class="max-w-4xl mx-auto px-6" data-aos="fade-up">
+                <div class="section-label mb-4">Educación</div>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-14" style="font-family: 'Outfit', sans-serif;">
+                    Formación y Certificaciones
+                </h2>
+
+                <div class="space-y-6">
+                    <!-- Cert 1: Claude Code -->
+                    <div class="cert-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="glass-card p-6">
+                            <div class="flex flex-wrap items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold text-white" style="font-family: 'Outfit', sans-serif;">Claude Code in Action</h3>
+                                <span class="tag tag-cyan text-xs">Mar. 2026</span>
+                            </div>
+                            <p class="text-sm font-semibold mb-2" style="color: var(--accent-cyan);">Anthropic Education</p>
+                            <a href="https://verify.skilljar.com/c/khvvym7farib" target="_blank" class="text-xs font-medium transition-all duration-300 hover:text-cyan-400" style="color: var(--text-muted);">
+                                <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Verificar certificado
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Cert 2: IBM AI Developer -->
+                    <div class="cert-card" data-aos="fade-up" data-aos-delay="50">
+                        <div class="glass-card p-6">
+                            <div class="flex flex-wrap items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold text-white" style="font-family: 'Outfit', sans-serif;">IBM AI Developer Professional Certificate</h3>
+                                <span class="tag tag-violet text-xs">Jun. 2025</span>
+                            </div>
+                            <p class="text-sm font-semibold" style="color: var(--accent-violet);">IBM / Coursera</p>
+                        </div>
+                    </div>
+
+                    <!-- Cert 3 -->
+                    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="glass-card p-6">
+                            <div class="flex flex-wrap items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold text-white" style="font-family: 'Outfit', sans-serif;">Building Generative AI-Powered Applications with Python</h3>
+                                <span class="tag tag-violet text-xs">Jun. 2025</span>
+                            </div>
+                            <p class="text-sm font-semibold" style="color: var(--accent-violet);">IBM / Coursera</p>
+                        </div>
+                    </div>
+
+                    <!-- Cert 4 -->
+                    <div class="cert-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="glass-card p-6">
+                            <div class="flex flex-wrap items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold text-white" style="font-family: 'Outfit', sans-serif;">Generative AI Essentials for Software Developers</h3>
+                                <span class="tag tag-violet text-xs">Jun. 2025</span>
+                            </div>
+                            <p class="text-sm font-semibold" style="color: var(--accent-violet);">IBM / Coursera</p>
+                        </div>
+                    </div>
+
+                    <!-- Cert 5 -->
+                    <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="glass-card p-6">
+                            <div class="flex flex-wrap items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold text-white" style="font-family: 'Outfit', sans-serif;">Python for Data Science, AI & Development</h3>
+                                <span class="tag tag-violet text-xs">May. 2025</span>
+                            </div>
+                            <p class="text-sm font-semibold" style="color: var(--accent-violet);">IBM / Coursera</p>
+                        </div>
+                    </div>
+
+                    <!-- Cert 6 -->
+                    <div class="cert-card" data-aos="fade-up" data-aos-delay="250">
+                        <div class="glass-card p-6">
+                            <div class="flex flex-wrap items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold text-white" style="font-family: 'Outfit', sans-serif;">Inmersión IA + Google Gemini</h3>
+                                <span class="tag tag-amber text-xs">Sep. 2025</span>
+                            </div>
+                            <p class="text-sm font-semibold" style="color: var(--accent-amber);">Alura</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ CONTACTO ═══════════════ -->
+        <section id="contact" class="py-28 md:py-36 relative overflow-hidden">
+            <!-- Accent orb -->
+            <div class="hero-orb" style="width: 400px; height: 400px; background: radial-gradient(circle, rgba(34, 211, 238, 0.12), transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+
+            <div class="max-w-3xl mx-auto px-6 text-center relative z-10" data-aos="fade-up">
+                <div class="section-label justify-center mb-4" style="justify-content: center;">
+                    <span>Contacto</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-6" style="font-family: 'Outfit', sans-serif; letter-spacing: -0.02em;">
+                    Hablemos
+                </h2>
+                <p class="text-lg md:text-xl leading-relaxed mb-12" style="color: var(--text-secondary);">
+                    Si buscas un developer que construye productos reales de IA — o tienes un negocio que quieres automatizar — escríbeme.
                 </p>
-                <a href="mailto:cb3013905@gmail.com" class="inline-block bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 px-10 rounded-full text-xl transition-transform duration-300 hover:scale-105">
-                    <i class="fa-solid fa-envelope mr-3"></i>Envíame un Correo
+                <a href="mailto:cb3013905@gmail.com" class="btn-primary text-lg" style="padding: 1.1rem 2.75rem;">
+                    <i class="fa-solid fa-envelope"></i> Envíame un Correo
                 </a>
             </div>
         </section>
+
     </main>
 
-    <footer class="bg-slate-900/70 border-t border-slate-800 py-8">
-        <div class="container mx-auto px-4 text-center text-slate-400">
-            <div class="flex justify-center gap-6 mb-4">
-                <a href="https://github.com/cristian6513" target="_blank" class="text-2xl hover:text-sky-400 transition-colors duration-300"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/cristian-betancourt-barbosa-cjbb13/" target="_blank" class="text-2xl hover:text-sky-400 transition-colors duration-300"><i class="fa-brands fa-linkedin"></i></a>
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer style="background: var(--bg-deep); border-top: 1px solid var(--glass-border);" class="py-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <a href="#home" class="text-xl font-bold text-white" style="font-family: 'Outfit', sans-serif; letter-spacing: -0.03em;">
+                    C<span style="color: var(--accent-cyan);">.</span>B
+                </a>
+                <div class="flex gap-6">
+                    <a href="https://github.com/cristian6513" target="_blank" class="text-xl transition-all duration-300 hover:-translate-y-1" style="color: var(--text-muted);">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/cristian-betancourt-barbosa-cjbb13/" target="_blank" class="text-xl transition-all duration-300 hover:-translate-y-1" style="color: var(--text-muted);">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://solodilo.cloud" target="_blank" class="text-xl transition-all duration-300 hover:-translate-y-1" style="color: var(--text-muted);">
+                        <i class="fa-solid fa-globe"></i>
+                    </a>
+                </div>
+                <p class="text-sm" style="color: var(--text-muted);">
+                    &copy; 2026 Cristian Betancourt Barbosa
+                </p>
             </div>
-            <p>&copy; 2025 Cristian Betancourt Barbosa. Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <!-- ═══════════════ SCRIPTS ═══════════════ -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true });
+        AOS.init({ duration: 700, once: true, offset: 60 });
 
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const icon = menuBtn.querySelector('i');
 
         menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-xmark');
+            mobileMenu.classList.toggle('hidden');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
         });
 
         document.querySelectorAll('#mobile-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        icon.classList.add('fa-bars');
-        icon.classList.remove('fa-xmark');
-        });
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            });
         });
 
+        // Parallax-lite on orbs
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.hero-orb');
+            const x = (e.clientX - window.innerWidth / 2) / 80;
+            const y = (e.clientY - window.innerHeight / 2) / 80;
+            orbs.forEach((orb, i) => {
+                const factor = (i + 1) * 0.5;
+                orb.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+            });
+        });
     </script>
 </body>
 </html>
